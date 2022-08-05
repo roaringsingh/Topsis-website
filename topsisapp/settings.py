@@ -13,6 +13,8 @@ import os.path
 import os
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.heroku.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -134,3 +136,8 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # test gmail password
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # test gmail username
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+try:
+    from .local_settings import *
+except Exception:
+    print('fuck you')
