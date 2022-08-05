@@ -4,7 +4,6 @@ from io import StringIO
 
 
 def send_mail(file, obj):
-    print(type(file))
     df = pd.read_csv(StringIO(file))
     mail = EmailMessage(
         'TOPSIS Result',
@@ -15,5 +14,5 @@ def send_mail(file, obj):
     df.to_csv('temp/result.csv', index=False)
     mail.attach_file('temp/result.csv')
     mail.send()
-    print('mail was sent')
+    print('success')
     return
