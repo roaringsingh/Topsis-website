@@ -140,4 +140,4 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 try:
     from .local_settings import *
 except Exception:
-    print('fuck you')
+    print('local settings not found')
