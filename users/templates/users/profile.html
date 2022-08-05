@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+{%for obj in data%}
+{{obj.weights}} {{obj.impacts}} {{obj.file|safe}}
+<a href="{{obj.id}}/sendmail">Send email</a>
+<a href="{{obj.id}}/delete">Delete</a>
+<hr>
+{%endfor%}
+
+{%if not user.email%}
+<form action="." method="post">
+    {%csrf_token%}
+    <input type="email" name="email" id="">
+    <input type="submit" value="Update">
+</form>
+{%endif%}
+
+
+
+<div class=" container">
+    <h2>{{user.username}}</h2>
+    <h2>{{user.email}}</h2>
+    <a class="btn" href="{% url 'calc' %}" style="color: white;
+    background-color: #fd5e14;" type="submit"> Calculate </a>
+</div>
+
+{% endblock %}
