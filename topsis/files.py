@@ -11,5 +11,3 @@ def file_topsis(f, d):
     except Exception:
         return pd.DataFrame()
     return df
-
-

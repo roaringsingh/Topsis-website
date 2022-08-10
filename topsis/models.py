@@ -9,6 +9,7 @@ class UserData(models.Model):
     weights = models.CharField(max_length=100, default='1,1,1,1,1')
     impacts = models.CharField(max_length=100, default='+,+,+,+,+')
     file = models.TextField(default=None, null=True)
+    html = models.TextField(default=None, null=True)
     add = models.BooleanField(default=False)
 
     def __str__(self):

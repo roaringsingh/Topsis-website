@@ -22,7 +22,8 @@ def data_view(request):
                 dataform.cleaned_data['user'] = request.user
                 obj = UserData(user=dataform.cleaned_data['user'], columns=dataform.cleaned_data['columns'],
                                weights=dataform.cleaned_data['weights'], impacts=dataform.cleaned_data['impacts'],
-                               add=dataform.cleaned_data['add'], file=result.to_csv(index=False), )
+                               add=dataform.cleaned_data['add'], file=result.to_csv(index=False),
+                               html=result.to_html(index=False))
                 obj.save()
             result_table = result.to_html()
             context = {
