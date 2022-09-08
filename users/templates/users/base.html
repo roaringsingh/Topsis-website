@@ -19,10 +19,10 @@
 
 </head>
 
-<!-- line 24 style="background-image: url({% static 'users/images/bg.png' %});"> -->
-
 <body id="bg" style="background-image: url({% static 'users/images/bg.png' %});">
+
   {% load static %}
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="main-navbar">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'users/images/home.png' %}"></a>
@@ -32,9 +32,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="#">Calculator</a>
+          <a class="nav-link" href="{% url 'calc' %}">Calculator</a>
           <a class="nav-link" href="https://github.com/roaringsingh">GitHub</a>
-          <a class="nav-link" href="#"></a>
+          <a class="nav-link" href="https://pypi.org/project/Topsis-Prabhnoor-102083037/#description">PyPI Package</a>
           <a class="nav-link" href="#"></a>
 
         </div>

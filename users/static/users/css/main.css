@@ -293,13 +293,6 @@ a {
 }
 
 
-
-
-
-
-
-
-
 // Remy function
 @function remy($value) {
   @return ($value / 16px) * 1rem;
@@ -495,4 +488,13 @@ label {
   transition-delay: 0.1s;
   text-decoration: none;
   border-radius: 9px;
+}
+
+tr {
+  text-align: center !important;
+}
+
+table.dataframe {
+  padding-block: revert !important;
+  text-align: center !important;
 }

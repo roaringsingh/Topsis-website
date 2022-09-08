@@ -1,13 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Data</title>
-</head>
-<body>
-<form enctype="multipart/form-data" action="." method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Calculate">
-</form>
-</body>
-</html>
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'users/css/main.css' %}">
+<div class="container">
+    <h2>TOPSIS Calculator</h2>
+    <p id="para">
+        This is a TOPSIS calculator, <br>
+        Upload a csv file for the TOPSIS analysis.
+    </p>
+    <div class="row g-0">
+        <form enctype="multipart/form-data" action="." method="post">{% csrf_token %}
+
+            {% if request.user.is_authenticated %}
+            {{ form.as_p }}
+            {% endif %}
+
+            {% if not request.user.is_authenticated %}
+
+            <p>
+                <label for="id_columns">Columns:</label>
+                <input type="number" name="columns" value="5" required id="id_columns">
+            </p>
+            <p>
+                <label for="id_weights">Weights:</label>
+                <input type="text" name="weights" value="1,1,1,1,1" maxlength="100" required="" id="id_weights">
+            </p>
+            <p>
+                <label for="id_impacts">Impacts:</label>
+                <input type="text" name="impacts" value="+,+,+,+,+" maxlength="100" required="" id="id_impacts">
+            </p>
+            <p>
+                <label for="id_file">File:</label>
+                <input type="file" name="file" required="" id="id_file">
+            </p>
+
+            {% endif %}
+            
+            <input type="submit" value="Calculate" id="header-links" style="color: white;
+            background-color: #fd5e14;">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

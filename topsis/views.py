@@ -9,7 +9,7 @@ import pandas as pd
 
 
 # Create your views here.
-@login_required()
+# @login_required()
 def data_view(request):
     dataform = DataForm()
     if request.POST:
