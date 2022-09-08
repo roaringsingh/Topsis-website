@@ -49,7 +49,7 @@ def profile_view(request):
 
 @login_required()
 def delete_account_view(request):
-    print(request.user, 'login')
+    print(request.user, 'delete')
     try:
         obj = User.objects.get(username=request.user)
         obj.delete()
